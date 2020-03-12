@@ -1,11 +1,13 @@
-package ontologie.demo.ws;
+package ontology.demo.ws;
 
 import net.minidev.json.JSONObject;
-import org.apache.jena.ontology.*;
+import org.apache.jena.ontology.OntClass;
+import org.apache.jena.ontology.OntModel;
+import org.apache.jena.ontology.OntModelSpec;
+import org.apache.jena.ontology.OntProperty;
 import org.apache.jena.query.*;
 import org.apache.jena.rdf.model.ModelFactory;
-
-import org.springframework.http.MediaType;
+import org.apache.jena.rdf.model.Resource;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.File;
@@ -18,248 +20,122 @@ import java.util.List;
 @RestController
 public class OntologyAPI {
 
-    private final static String FILE_NAME = "gym_semantic.owl";
-    private final static String URL = "http://www.semanticweb.org/opendev/ontologies/2017/10/untitled-ontology-8#";
+    /*
+     * Note: Some classes and properties not defined by us need to be added manually.
+     * */
 
-    private OntModel getOntModel() throws FileNotFoundException {
-        File file = new File(FILE_NAME);
-        FileReader reader = new FileReader(file);
-        OntModel model = ModelFactory
-                .createOntologyModel(OntModelSpec.OWL_DL_MEM);
-        model.read(reader,null);
+    private final static String FILE_NAME = "data.owl";
+
+    @GetMapping(value = "/ontology")
+    public List<JSONObject> getOntologies() {
+        return getList(getModel().listOntologies(), true);
+    }
+
+    @GetMapping(value = "/type")
+    public List<JSONObject> getTypes() {
+        return getList(getModel().listClasses(), true);
+    }
+
+    @GetMapping(value = "/type/{name}")
+    public List<JSONObject> getTypeProperties(@PathVariable("name") String name) {
+        return getPropertiesList(findClass(name).listDeclaredProperties());
+    }
+
+    @GetMapping(value = "/type/{name}/subType")
+    public List<JSONObject> getSubTypes(@PathVariable("name") String name) {
+        OntClass superClass = findClass(name);
+        assert superClass != null;
+        return getList(superClass.listSubClasses(), true);
+    }
+
+    @GetMapping(value = "/type/{name}/superType")
+    public List<JSONObject> getSuperTypes(@PathVariable("name") String name) {
+        OntClass subClass = findClass(name);
+        assert subClass != null;
+        return getList(subClass.listSuperClasses(), true);
+    }
+
+    @GetMapping(value = "/instance")
+    public List<JSONObject> getInstances() {
+        return getList(getModel().listIndividuals(), false);
+    }
+
+    @GetMapping(value = "/instance/{name}")
+    public List<JSONObject> getTypeInstances(@PathVariable("name") String className) {
+        return getList(findClass(className).listInstances(), false);
+    }
+
+    /**
+     * Example body:
+     * prefix md: <http://www.medicalorganizations.mk#>
+     * select ?p ?o {
+     *    md:1376900939 ?p ?o
+     * }
+     **/
+    @PostMapping(value = "/sparql")
+    public List<JSONObject> executeQuery(@RequestBody String query) {
+
+        List<JSONObject> list = new ArrayList<>();
+        QueryExecution qe = QueryExecutionFactory.create(QueryFactory.create(query), getModel());
+        ResultSet resultSet = qe.execSelect();
+
+        while (resultSet.hasNext()) {
+            JSONObject obj = new JSONObject();
+            QuerySolution solution = resultSet.nextSolution();
+            solution.varNames().forEachRemaining(var ->
+                    obj.put(var, solution.get(var).toString())
+            );
+            list.add(obj);
+        }
+        return list;
+    }
+
+    private OntModel getModel() {
+        FileReader reader = null;
+        try {
+            reader = new FileReader(new File(FILE_NAME));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        OntModel model = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM);
+        model.read(reader, null);
         return model;
     }
 
-    private List<JSONObject> getJSONList(Iterator iterator) {
-        List<JSONObject> list=new ArrayList<>();
+    private List<JSONObject> getList(Iterator iterator, Boolean hasName) {
+        List<JSONObject> list = new ArrayList<>();
         while (iterator.hasNext()) {
-            OntClass sub = (OntClass) iterator.next();
+            Resource sub = (Resource) iterator.next();
             JSONObject obj = new JSONObject();
-            obj.put("URI",sub.getURI());
+            if (hasName) {
+                obj.put("name", sub.getLocalName());
+            }
+            obj.put("uri", sub.getURI());
             list.add(obj);
         }
         return list;
     }
 
-    private List<JSONObject> getJsonObjects(List<JSONObject> list, Iterator subIter) {
-        while (subIter.hasNext()) {
-            Individual sub = (Individual) subIter.next();
+    private List<JSONObject> getPropertiesList(Iterator iterator) {
+        List<JSONObject> list = new ArrayList<>();
+        while (iterator.hasNext()) {
+            OntProperty property = (OntProperty) iterator.next();
             JSONObject obj = new JSONObject();
-            obj.put("name",sub.getLocalName());
-            obj.put("uri",sub.getURI());
+            obj.put("name", property.getLocalName());
+            obj.put("type", property.getRDFType().getLocalName());
+            if (property.getDomain() != null)
+                obj.put("domain", property.getDomain().getLocalName());
+            if (property.getRange() != null)
+                obj.put("range", property.getRange().getLocalName());
             list.add(obj);
-
         }
-
         return list;
     }
 
-    @RequestMapping(value = "/ontologies",method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<JSONObject> getOntologies() {
-        List<JSONObject> list=new ArrayList<>();
-        try {
-            OntModel model = getOntModel();
-            Iterator ontologiesIterator = model.listOntologies();
-            while (ontologiesIterator.hasNext()) {
-                Ontology ontology = (Ontology) ontologiesIterator.next();
-
-                JSONObject obj = new JSONObject();
-                obj.put("name",ontology.getLocalName());
-                obj.put("uri",ontology.getURI());
-                list.add(obj);
-
-            }
-            return list;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    @RequestMapping(value = "/classesList",method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<JSONObject> getClasses() {
-        List<JSONObject> list=new ArrayList<>();
-        try {
-            OntModel model = getOntModel();
-            Iterator classIter = model.listClasses();
-            while (classIter.hasNext()) {
-                OntClass ontClass = (OntClass) classIter.next();
-                JSONObject obj = new JSONObject();
-                obj.put("name",ontClass.getLocalName());
-                obj.put("uri",ontClass.getURI());
-                list.add(obj);
-
-            }
-            return list;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    @RequestMapping(value = "/subClasses",method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<JSONObject> getSubClasses(@RequestParam("classname") String className) {
-        try {
-            OntModel model = getOntModel();
-            String classURI = URL.concat(className);
-            OntClass received = model.getOntClass(classURI);
-            Iterator iterator = received.listSubClasses();
-            return getJSONList(iterator);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    @RequestMapping(value = "/Individuals",method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<JSONObject> getIndividuals() {
-        List<JSONObject> list=new ArrayList<>();
-        try {
-            OntModel model = getOntModel();
-            Iterator individuals = model.listIndividuals();
-            return getJsonObjects(list, individuals);
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    @RequestMapping(value = "/superClasses",method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<JSONObject> getSuperClasses(@RequestParam("classname") String className) {
-        try {
-            OntModel model = getOntModel();
-            String classURI = URL.concat(className);
-            OntClass received = model.getOntClass(classURI);
-            Iterator iterator = received.listSuperClasses();
-            return getJSONList(iterator);
-
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    @RequestMapping(value = "/getClassProperty",method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<JSONObject> getClassProperty(@RequestParam("classname") String className) {
-        List<JSONObject> list=new ArrayList<>();
-        try {
-            OntModel model = getOntModel();
-            String classURI = URL.concat(className);
-
-            OntClass ontClass = model.getOntClass(classURI );
-            Iterator subIter = ontClass.listDeclaredProperties();
-            while (subIter.hasNext()) {
-                OntProperty property = (OntProperty) subIter.next();
-                JSONObject obj = new JSONObject();
-                obj.put("propertyName",property.getLocalName());
-
-                    obj.put("propertyType",property.getRDFType().getLocalName());
-
-                if(property.getDomain()!=null)
-                    obj.put("domain", property.getDomain().getLocalName());
-                if(property.getRange()!=null)
-                    obj.put("range",property.getRange().getLocalName());
-
-                list.add(obj);
-            }
-            return list;
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    @RequestMapping(value = "/equivClasses",method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<JSONObject> getequivClasses(@RequestParam("classname") String className) {
-        try {
-            OntModel model = getOntModel();
-            String classURI = URL.concat(className);
-            OntClass received = model.getOntClass(classURI);
-            Iterator iterator = received.listEquivalentClasses();
-
-            return getJSONList(iterator);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    @RequestMapping(value = "/Instances",method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<JSONObject> getInstancesClasses(@RequestParam("classname") String className) {
-        List<JSONObject> list=new ArrayList<>();
-        try {
-            OntModel model = getOntModel();
-            String classURI = URL.concat(className);
-            OntClass received = model.getOntClass(classURI);
-            Iterator subIter = received.listInstances();
-            return getJsonObjects(list, subIter);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-
-    @RequestMapping(value = "/isHierarchyRoot",method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<JSONObject> isHieararchyRoot(@RequestParam("classname") String className) {
-        List<JSONObject> list=new ArrayList<>();
-        try {
-            OntModel model = getOntModel();
-            String classURI = URL.concat(className);
-            OntClass received = model.getOntClass(classURI );
-
-            if (received != null){
-                JSONObject obj = new JSONObject();
-                if (received.isHierarchyRoot()){
-                    obj.put("isRoot","true");
-                }else {
-                    obj.put("isRoot","false");
-                }
-                list.add(obj);
-            }
-            return list;
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    @RequestMapping(value = "/query",method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<JSONObject> query() {
-        List<JSONObject> list=new ArrayList<>();
-        try {
-            OntModel model = getOntModel();
-
-            String sparql = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>" +
-                    "PREFIX owl: <http://www.w3.org/2002/07/owl#>" +
-                    "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>" +
-                    "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>" +
-                    "select * {?x ?y ?z}";
-            Query query = QueryFactory.create(sparql);
-            QueryExecution qe = QueryExecutionFactory.create(query, model);
-            ResultSet resultSet = qe.execSelect();
-            while (resultSet.hasNext()) {
-                JSONObject obj = new JSONObject();
-                QuerySolution solution = resultSet.nextSolution();
-                System.out.println(solution.get("x").toString());
-                obj.put("subject",solution.get("x").toString());
-                obj.put("property",solution.get("y").toString());
-                obj.put("object",solution.get("z").toString());
-                list.add(obj);
-            }
-            return list;
-
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
+    private OntClass findClass(String className) {
+        return getModel().listClasses().toList().stream()
+                .filter(c -> c.getLocalName().equals(className))
+                .findFirst()
+                .orElse(null);
     }
 }

@@ -8,6 +8,7 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:terms="http://purl.org/dc/terms/"
      xmlns:schema="http://schema.org/">
+
     <owl:Ontology rdf:about="http://www.medicalorganizations.mk">
         <owl:imports rdf:resource="http://www.w3.org/2002/07/owl"/>
         <owl:imports rdf:resource="urn:absolute:1.0.0"/>
@@ -22,7 +23,6 @@
     //
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
-
     
 
 
@@ -101,12 +101,18 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
+    <!-- http://schema.org/Pharmacy -->
+
+    <owl:Class rdf:about="http://schema.org/Pharmacy">
+        <rdfs:subClassOf rdf:resource="http://schema.org/MedicalOrganization"/>
+    </owl:Class>
 
 
     <!-- http://schema.org/Hospital -->
 
-    <owl:Class rdf:about="http://schema.org/Hospital"/>
+    <owl:Class rdf:about="http://schema.org/Hospital">
+        <rdfs:subClassOf rdf:resource="http://schema.org/MedicalOrganization"/>
+    </owl:Class>
     
 
 
