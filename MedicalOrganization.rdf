@@ -1,0 +1,1599 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.w3.org/2002/07/owl"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:schema="http://schema.org/"
+     xmlns:dcterms="http://purl.org/dc/terms/"
+     xmlns:data-view="http://www.w3.org/2003/g/data-view#">
+    <Ontology rdf:about="http://www.medicalorganization.mk">
+        <versionIRI rdf:resource="urn:absolute:1.0.0"/>
+        <imports rdf:resource="http://www.medicalorganizations.mk"/>
+    </Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/source -->
+
+    <AnnotationProperty rdf:about="http://purl.org/dc/terms/source"/>
+    
+
+
+    <!-- http://schema.org/additionalType -->
+
+    <AnnotationProperty rdf:about="http://schema.org/additionalType">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <rdfs:range rdf:resource="http://schema.org/URL"/>
+    </AnnotationProperty>
+    
+
+
+    <!-- http://schema.org/category -->
+
+    <AnnotationProperty rdf:about="http://schema.org/category"/>
+    
+
+
+    <!-- http://schema.org/inverseOf -->
+
+    <AnnotationProperty rdf:about="http://schema.org/inverseOf"/>
+    
+
+
+    <!-- http://schema.org/isPartOf -->
+
+    <AnnotationProperty rdf:about="http://schema.org/isPartOf"/>
+    
+
+
+    <!-- http://schema.org/name -->
+
+    <AnnotationProperty rdf:about="http://schema.org/name">
+        <rdfs:comment>The name of the item.</rdfs:comment>
+        <rdfs:label>name</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <rdfs:range rdf:resource="http://schema.org/Text"/>
+        <rdfs:domain rdf:resource="http://schema.org/Thing"/>
+    </AnnotationProperty>
+    
+
+
+    <!-- http://schema.org/supersededBy -->
+
+    <AnnotationProperty rdf:about="http://schema.org/supersededBy"/>
+    
+
+
+    <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#type -->
+
+    <AnnotationProperty rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://schema.org/actionableFeedbackPolicy -->
+
+    <ObjectProperty rdf:about="http://schema.org/actionableFeedbackPolicy">
+        <rdfs:subPropertyOf rdf:resource="http://schema.org/publishingPrinciples"/>
+        <rdfs:domain rdf:resource="http://schema.org/NewsMediaOrganization"/>
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:range rdf:resource="http://schema.org/CreativeWork"/>
+        <rdfs:range rdf:resource="http://schema.org/URL"/>
+        <dcterms:source rdf:resource="https://github.com/schemaorg/schemaorg/issues/1525"/>
+        <dcterms:source rdf:resource="https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#TP"/>
+        <schema:category>issue-1525</schema:category>
+        <schema:isPartOf rdf:resource="http://pending.schema.org"/>
+        <rdfs:comment>For a &lt;a class=&quot;localLink&quot; href=&quot;http://schema.org/NewsMediaOrganization&quot;&gt;NewsMediaOrganization&lt;/a&gt; or other news-related &lt;a class=&quot;localLink&quot; href=&quot;http://schema.org/Organization&quot;&gt;Organization&lt;/a&gt;, a statement about public engagement activities (for news media, the newsroom’s), including involving the public - digitally or otherwise -- in coverage decisions, reporting and activities after publication.</rdfs:comment>
+        <rdfs:label>actionableFeedbackPolicy</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/additionalType -->
+
+    <ObjectProperty rdf:about="http://schema.org/additionalType">
+        <rdfs:domain rdf:resource="http://schema.org/Thing"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/address -->
+
+    <ObjectProperty rdf:about="http://schema.org/address">
+        <rdfs:domain rdf:resource="http://schema.org/GeoCoordinates"/>
+        <rdfs:domain rdf:resource="http://schema.org/GeoShape"/>
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:domain rdf:resource="http://schema.org/Person"/>
+        <rdfs:domain rdf:resource="http://schema.org/Place"/>
+        <rdfs:range rdf:resource="http://schema.org/PostalAddress"/>
+        <rdfs:range rdf:resource="http://schema.org/Text"/>
+        <rdfs:comment>Physical address of the item.</rdfs:comment>
+        <rdfs:label>address</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/aggregateRating -->
+
+    <ObjectProperty rdf:about="http://schema.org/aggregateRating">
+        <rdfs:domain rdf:resource="http://schema.org/Brand"/>
+        <rdfs:domain rdf:resource="http://schema.org/CreativeWork"/>
+        <rdfs:domain rdf:resource="http://schema.org/Event"/>
+        <rdfs:domain rdf:resource="http://schema.org/Offer"/>
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:domain rdf:resource="http://schema.org/Place"/>
+        <rdfs:domain rdf:resource="http://schema.org/Product"/>
+        <rdfs:domain rdf:resource="http://schema.org/Service"/>
+        <rdfs:range rdf:resource="http://schema.org/AggregateRating"/>
+        <rdfs:comment>The overall rating, based on a collection of reviews or ratings, of the item.</rdfs:comment>
+        <rdfs:label>aggregateRating</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/alternateName -->
+
+    <ObjectProperty rdf:about="http://schema.org/alternateName">
+        <rdfs:domain rdf:resource="http://schema.org/Thing"/>
+        <rdfs:range rdf:resource="http://schema.org/Text"/>
+        <rdfs:comment>An alias for the item.</rdfs:comment>
+        <rdfs:label>alternateName</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/alumni -->
+
+    <ObjectProperty rdf:about="http://schema.org/alumni">
+        <rdfs:domain rdf:resource="http://schema.org/EducationalOrganization"/>
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:range rdf:resource="http://schema.org/Person"/>
+        <schema:inverseOf rdf:resource="http://schema.org/alumniOf"/>
+        <rdfs:comment>Alumni of an organization.</rdfs:comment>
+        <rdfs:label>alumni</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/areaServed -->
+
+    <ObjectProperty rdf:about="http://schema.org/areaServed">
+        <rdfs:domain rdf:resource="http://schema.org/ContactPoint"/>
+        <rdfs:domain rdf:resource="http://schema.org/DeliveryChargeSpecification"/>
+        <rdfs:domain rdf:resource="http://schema.org/Demand"/>
+        <rdfs:domain rdf:resource="http://schema.org/Offer"/>
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:domain rdf:resource="http://schema.org/Service"/>
+        <rdfs:range rdf:resource="http://schema.org/AdministrativeArea"/>
+        <rdfs:range rdf:resource="http://schema.org/GeoShape"/>
+        <rdfs:range rdf:resource="http://schema.org/Place"/>
+        <rdfs:range rdf:resource="http://schema.org/Text"/>
+        <rdfs:comment>The geographic area where a service or offered item is provided.</rdfs:comment>
+        <rdfs:label>areaServed</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/award -->
+
+    <ObjectProperty rdf:about="http://schema.org/award">
+        <rdfs:domain rdf:resource="http://schema.org/CreativeWork"/>
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:domain rdf:resource="http://schema.org/Person"/>
+        <rdfs:domain rdf:resource="http://schema.org/Product"/>
+        <rdfs:domain rdf:resource="http://schema.org/Service"/>
+        <rdfs:range rdf:resource="http://schema.org/Text"/>
+        <rdfs:comment>An award won by or for this item.</rdfs:comment>
+        <rdfs:label>award</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/awards -->
+
+    <ObjectProperty rdf:about="http://schema.org/awards">
+        <rdfs:domain rdf:resource="http://schema.org/CreativeWork"/>
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:domain rdf:resource="http://schema.org/Person"/>
+        <rdfs:domain rdf:resource="http://schema.org/Product"/>
+        <rdfs:range rdf:resource="http://schema.org/Text"/>
+        <schema:supersededBy rdf:resource="http://schema.org/award"/>
+        <rdfs:comment>Awards won by or for this item.</rdfs:comment>
+        <rdfs:label>awards</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/brand -->
+
+    <ObjectProperty rdf:about="http://schema.org/brand">
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:domain rdf:resource="http://schema.org/Person"/>
+        <rdfs:domain rdf:resource="http://schema.org/Product"/>
+        <rdfs:domain rdf:resource="http://schema.org/Service"/>
+        <rdfs:range rdf:resource="http://schema.org/Brand"/>
+        <rdfs:range rdf:resource="http://schema.org/Organization"/>
+        <rdfs:comment>The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person.</rdfs:comment>
+        <rdfs:label>brand</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/contactPoint -->
+
+    <ObjectProperty rdf:about="http://schema.org/contactPoint">
+        <rdfs:domain rdf:resource="http://schema.org/HealthInsurancePlan"/>
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:domain rdf:resource="http://schema.org/Person"/>
+        <rdfs:range rdf:resource="http://schema.org/ContactPoint"/>
+        <rdfs:comment>A contact point for a person or organization.</rdfs:comment>
+        <rdfs:label>contactPoint</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/contactPoints -->
+
+    <ObjectProperty rdf:about="http://schema.org/contactPoints">
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:domain rdf:resource="http://schema.org/Person"/>
+        <rdfs:range rdf:resource="http://schema.org/ContactPoint"/>
+        <schema:supersededBy rdf:resource="http://schema.org/contactPoint"/>
+        <rdfs:comment>A contact point for a person or organization.</rdfs:comment>
+        <rdfs:label>contactPoints</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/correctionsPolicy -->
+
+    <ObjectProperty rdf:about="http://schema.org/correctionsPolicy">
+        <rdfs:subPropertyOf rdf:resource="http://schema.org/publishingPrinciples"/>
+        <rdfs:domain rdf:resource="http://schema.org/NewsMediaOrganization"/>
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:range rdf:resource="http://schema.org/CreativeWork"/>
+        <rdfs:range rdf:resource="http://schema.org/URL"/>
+        <dcterms:source rdf:resource="https://github.com/schemaorg/schemaorg/issues/1525"/>
+        <dcterms:source rdf:resource="https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#TP"/>
+        <schema:category>issue-1525</schema:category>
+        <schema:isPartOf rdf:resource="http://pending.schema.org"/>
+        <rdfs:comment>For an &lt;a class=&quot;localLink&quot; href=&quot;http://schema.org/Organization&quot;&gt;Organization&lt;/a&gt; (e.g. &lt;a class=&quot;localLink&quot; href=&quot;http://schema.org/NewsMediaOrganization&quot;&gt;NewsMediaOrganization&lt;/a&gt;), a statement describing (in news media, the newsroom’s) disclosure and correction policy for errors.</rdfs:comment>
+        <rdfs:label>correctionsPolicy</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/department -->
+
+    <ObjectProperty rdf:about="http://schema.org/department">
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:range rdf:resource="http://schema.org/Organization"/>
+        <rdfs:comment>A relationship between an organization and a department of that organization, also described as an organization (allowing different urls, logos, opening hours). For example: a store with a pharmacy, or a bakery with a cafe.</rdfs:comment>
+        <rdfs:label>department</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/description -->
+
+    <ObjectProperty rdf:about="http://schema.org/description">
+        <rdfs:domain rdf:resource="http://schema.org/Thing"/>
+        <rdfs:range rdf:resource="http://schema.org/Text"/>
+        <rdfs:comment>A description of the item.</rdfs:comment>
+        <rdfs:label>description</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/disambiguatingDescription -->
+
+    <ObjectProperty rdf:about="http://schema.org/disambiguatingDescription">
+        <rdfs:subPropertyOf rdf:resource="http://schema.org/description"/>
+        <rdfs:domain rdf:resource="http://schema.org/Thing"/>
+        <rdfs:range rdf:resource="http://schema.org/Text"/>
+        <rdfs:comment>A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation.</rdfs:comment>
+        <rdfs:label>disambiguatingDescription</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/dissolutionDate -->
+
+    <ObjectProperty rdf:about="http://schema.org/dissolutionDate">
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:range rdf:resource="http://schema.org/Date"/>
+        <rdfs:comment>The date that this organization was dissolved.</rdfs:comment>
+        <rdfs:label>dissolutionDate</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/diversityPolicy -->
+
+    <ObjectProperty rdf:about="http://schema.org/diversityPolicy">
+        <rdfs:domain rdf:resource="http://schema.org/NewsMediaOrganization"/>
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:range rdf:resource="http://schema.org/CreativeWork"/>
+        <rdfs:range rdf:resource="http://schema.org/URL"/>
+        <dcterms:source rdf:resource="https://github.com/schemaorg/schemaorg/issues/1525"/>
+        <dcterms:source rdf:resource="https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#TP"/>
+        <schema:category>issue-1525</schema:category>
+        <schema:isPartOf rdf:resource="http://pending.schema.org"/>
+        <rdfs:comment>Statement on diversity policy by an &lt;a class=&quot;localLink&quot; href=&quot;http://schema.org/Organization&quot;&gt;Organization&lt;/a&gt; e.g. a &lt;a class=&quot;localLink&quot; href=&quot;http://schema.org/NewsMediaOrganization&quot;&gt;NewsMediaOrganization&lt;/a&gt;. For a &lt;a class=&quot;localLink&quot; href=&quot;http://schema.org/NewsMediaOrganization&quot;&gt;NewsMediaOrganization&lt;/a&gt;, a statement describing the newsroom’s diversity policy on both staffing and sources, typically providing staffing data.</rdfs:comment>
+        <rdfs:label>diversityPolicy</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/diversityStaffingReport -->
+
+    <ObjectProperty rdf:about="http://schema.org/diversityStaffingReport">
+        <rdfs:subPropertyOf rdf:resource="http://schema.org/publishingPrinciples"/>
+        <rdfs:domain rdf:resource="http://schema.org/NewsMediaOrganization"/>
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:range rdf:resource="http://schema.org/Article"/>
+        <rdfs:range rdf:resource="http://schema.org/URL"/>
+        <dcterms:source rdf:resource="https://github.com/schemaorg/schemaorg/issues/1525"/>
+        <dcterms:source rdf:resource="https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#TP"/>
+        <schema:category>issue-1525</schema:category>
+        <schema:isPartOf rdf:resource="http://pending.schema.org"/>
+        <rdfs:comment>For an &lt;a class=&quot;localLink&quot; href=&quot;http://schema.org/Organization&quot;&gt;Organization&lt;/a&gt; (often but not necessarily a &lt;a class=&quot;localLink&quot; href=&quot;http://schema.org/NewsMediaOrganization&quot;&gt;NewsMediaOrganization&lt;/a&gt;), a report on staffing diversity issues. In a news context this might be for example ASNE or RTDNA (US) reports, or self-reported.</rdfs:comment>
+        <rdfs:label>diversityStaffingReport</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/duns -->
+
+    <ObjectProperty rdf:about="http://schema.org/duns">
+        <rdfs:subPropertyOf rdf:resource="http://schema.org/identifier"/>
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:domain rdf:resource="http://schema.org/Person"/>
+        <rdfs:range rdf:resource="http://schema.org/Text"/>
+        <dcterms:source rdf:resource="http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms"/>
+        <rdfs:comment>The Dun &amp;amp; Bradstreet DUNS number for identifying an organization or business person.</rdfs:comment>
+        <rdfs:label>duns</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/email -->
+
+    <ObjectProperty rdf:about="http://schema.org/email">
+        <rdfs:domain rdf:resource="http://schema.org/ContactPoint"/>
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:domain rdf:resource="http://schema.org/Person"/>
+        <rdfs:range rdf:resource="http://schema.org/Text"/>
+        <rdfs:comment>Email address.</rdfs:comment>
+        <rdfs:label>email</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/employee -->
+
+    <ObjectProperty rdf:about="http://schema.org/employee">
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:range rdf:resource="http://schema.org/Person"/>
+        <rdfs:comment>Someone working for this organization.</rdfs:comment>
+        <rdfs:label>employee</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/employees -->
+
+    <ObjectProperty rdf:about="http://schema.org/employees">
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:range rdf:resource="http://schema.org/Person"/>
+        <schema:supersededBy rdf:resource="http://schema.org/employee"/>
+        <rdfs:comment>People working for this organization.</rdfs:comment>
+        <rdfs:label>employees</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/ethicsPolicy -->
+
+    <ObjectProperty rdf:about="http://schema.org/ethicsPolicy">
+        <rdfs:domain rdf:resource="http://schema.org/NewsMediaOrganization"/>
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:range rdf:resource="http://schema.org/CreativeWork"/>
+        <rdfs:range rdf:resource="http://schema.org/URL"/>
+        <dcterms:source rdf:resource="https://github.com/schemaorg/schemaorg/issues/1525"/>
+        <schema:category>issue-1525</schema:category>
+        <schema:isPartOf rdf:resource="http://pending.schema.org"/>
+        <rdfs:comment>Statement about ethics policy, e.g. of a &lt;a class=&quot;localLink&quot; href=&quot;http://schema.org/NewsMediaOrganization&quot;&gt;NewsMediaOrganization&lt;/a&gt; regarding journalistic and publishing practices, or of a &lt;a class=&quot;localLink&quot; href=&quot;http://schema.org/Restaurant&quot;&gt;Restaurant&lt;/a&gt;, a page describing food source policies. In the case of a &lt;a class=&quot;localLink&quot; href=&quot;http://schema.org/NewsMediaOrganization&quot;&gt;NewsMediaOrganization&lt;/a&gt;, an ethicsPolicy is typically a statement describing the personal, organizational, and corporate standards of behavior expected by the organization.</rdfs:comment>
+        <rdfs:label>ethicsPolicy</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/event -->
+
+    <ObjectProperty rdf:about="http://schema.org/event">
+        <rdfs:domain rdf:resource="http://schema.org/InformAction"/>
+        <rdfs:domain rdf:resource="http://schema.org/InviteAction"/>
+        <rdfs:domain rdf:resource="http://schema.org/JoinAction"/>
+        <rdfs:domain rdf:resource="http://schema.org/LeaveAction"/>
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:domain rdf:resource="http://schema.org/Place"/>
+        <rdfs:domain rdf:resource="http://schema.org/PlayAction"/>
+        <rdfs:range rdf:resource="http://schema.org/Event"/>
+        <rdfs:comment>Upcoming or past event associated with this place, organization, or action.</rdfs:comment>
+        <rdfs:label>event</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/events -->
+
+    <ObjectProperty rdf:about="http://schema.org/events">
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:domain rdf:resource="http://schema.org/Place"/>
+        <rdfs:range rdf:resource="http://schema.org/Event"/>
+        <schema:supersededBy rdf:resource="http://schema.org/event"/>
+        <rdfs:comment>Upcoming or past events associated with this place or organization.</rdfs:comment>
+        <rdfs:label>events</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/faxNumber -->
+
+    <ObjectProperty rdf:about="http://schema.org/faxNumber">
+        <rdfs:domain rdf:resource="http://schema.org/ContactPoint"/>
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:domain rdf:resource="http://schema.org/Person"/>
+        <rdfs:domain rdf:resource="http://schema.org/Place"/>
+        <rdfs:range rdf:resource="http://schema.org/Text"/>
+        <rdfs:comment>The fax number.</rdfs:comment>
+        <rdfs:label>faxNumber</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/founder -->
+
+    <ObjectProperty rdf:about="http://schema.org/founder">
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:range rdf:resource="http://schema.org/Person"/>
+        <rdfs:comment>A person who founded this organization.</rdfs:comment>
+        <rdfs:label>founder</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/founders -->
+
+    <ObjectProperty rdf:about="http://schema.org/founders">
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:range rdf:resource="http://schema.org/Person"/>
+        <schema:supersededBy rdf:resource="http://schema.org/founder"/>
+        <rdfs:comment>A person who founded this organization.</rdfs:comment>
+        <rdfs:label>founders</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/foundingDate -->
+
+    <ObjectProperty rdf:about="http://schema.org/foundingDate">
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:range rdf:resource="http://schema.org/Date"/>
+        <rdfs:comment>The date that this organization was founded.</rdfs:comment>
+        <rdfs:label>foundingDate</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/foundingLocation -->
+
+    <ObjectProperty rdf:about="http://schema.org/foundingLocation">
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:range rdf:resource="http://schema.org/Place"/>
+        <rdfs:comment>The place where the Organization was founded.</rdfs:comment>
+        <rdfs:label>foundingLocation</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/funder -->
+
+    <ObjectProperty rdf:about="http://schema.org/funder">
+        <rdfs:subPropertyOf rdf:resource="http://schema.org/sponsor"/>
+        <rdfs:domain rdf:resource="http://schema.org/CreativeWork"/>
+        <rdfs:domain rdf:resource="http://schema.org/Event"/>
+        <rdfs:domain rdf:resource="http://schema.org/MonetaryGrant"/>
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:domain rdf:resource="http://schema.org/Person"/>
+        <rdfs:range rdf:resource="http://schema.org/Organization"/>
+        <rdfs:range rdf:resource="http://schema.org/Person"/>
+        <rdfs:comment>A person or organization that supports (sponsors) something through some kind of financial contribution.</rdfs:comment>
+        <rdfs:label>funder</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/globalLocationNumber -->
+
+    <ObjectProperty rdf:about="http://schema.org/globalLocationNumber">
+        <rdfs:subPropertyOf rdf:resource="http://schema.org/identifier"/>
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:domain rdf:resource="http://schema.org/Person"/>
+        <rdfs:domain rdf:resource="http://schema.org/Place"/>
+        <rdfs:range rdf:resource="http://schema.org/Text"/>
+        <dcterms:source rdf:resource="http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms"/>
+        <rdfs:comment>The &lt;a href=&quot;http://www.gs1.org/gln&quot;&gt;Global Location Number&lt;/a&gt; (GLN, sometimes also referred to as International Location Number or ILN) of the respective organization, person, or place. The GLN is a 13-digit number used to identify parties and physical locations.</rdfs:comment>
+        <rdfs:label>globalLocationNumber</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/hasCredential -->
+
+    <ObjectProperty rdf:about="http://schema.org/hasCredential">
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:domain rdf:resource="http://schema.org/Person"/>
+        <rdfs:range rdf:resource="http://schema.org/EducationalOccupationalCredential"/>
+        <dcterms:source rdf:resource="https://github.com/schemaorg/schemaorg/issues/2289"/>
+        <schema:category>issue-2289</schema:category>
+        <schema:isPartOf rdf:resource="http://pending.schema.org"/>
+        <rdfs:comment>A credential awarded to the Person or Organization.</rdfs:comment>
+        <rdfs:label>hasCredential</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/hasMerchantReturnPolicy -->
+
+    <ObjectProperty rdf:about="http://schema.org/hasMerchantReturnPolicy">
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:domain rdf:resource="http://schema.org/Product"/>
+        <rdfs:range rdf:resource="http://schema.org/MerchantReturnPolicy"/>
+        <dcterms:source rdf:resource="https://github.com/schemaorg/schemaorg/issues/2288"/>
+        <schema:category>issue-2288</schema:category>
+        <schema:isPartOf rdf:resource="http://pending.schema.org"/>
+        <rdfs:comment>Indicates a MerchantReturnPolicy that may be applicable.</rdfs:comment>
+        <rdfs:label>hasMerchantReturnPolicy</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/hasOfferCatalog -->
+
+    <ObjectProperty rdf:about="http://schema.org/hasOfferCatalog">
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:domain rdf:resource="http://schema.org/Person"/>
+        <rdfs:domain rdf:resource="http://schema.org/Service"/>
+        <rdfs:range rdf:resource="http://schema.org/OfferCatalog"/>
+        <rdfs:comment>Indicates an OfferCatalog listing for this Organization, Person, or Service.</rdfs:comment>
+        <rdfs:label>hasOfferCatalog</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/hasPOS -->
+
+    <ObjectProperty rdf:about="http://schema.org/hasPOS">
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:domain rdf:resource="http://schema.org/Person"/>
+        <rdfs:range rdf:resource="http://schema.org/Place"/>
+        <dcterms:source rdf:resource="http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms"/>
+        <rdfs:comment>Points-of-Sales operated by the organization or person.</rdfs:comment>
+        <rdfs:label>hasPOS</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/hasProductReturnPolicy -->
+
+    <ObjectProperty rdf:about="http://schema.org/hasProductReturnPolicy">
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:domain rdf:resource="http://schema.org/Product"/>
+        <rdfs:range rdf:resource="http://schema.org/ProductReturnPolicy"/>
+        <dcterms:source rdf:resource="https://github.com/schemaorg/schemaorg/issues/2288"/>
+        <schema:category>issue-2288</schema:category>
+        <schema:isPartOf rdf:resource="http://attic.schema.org"/>
+        <schema:supersededBy rdf:resource="http://schema.org/hasMerchantReturnPolicy"/>
+        <rdfs:comment>Indicates a ProductReturnPolicy that may be applicable.</rdfs:comment>
+        <rdfs:label>hasProductReturnPolicy</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/healthPlanNetworkId -->
+
+    <ObjectProperty rdf:about="http://schema.org/healthPlanNetworkId">
+        <rdfs:domain rdf:resource="http://schema.org/HealthPlanNetwork"/>
+        <rdfs:domain rdf:resource="http://schema.org/MedicalOrganization"/>
+        <rdfs:range rdf:resource="http://schema.org/Text"/>
+        <dcterms:source rdf:resource="https://github.com/schemaorg/schemaorg/issues/1062"/>
+        <schema:category>issue-1062</schema:category>
+        <schema:isPartOf rdf:resource="http://pending.schema.org"/>
+        <rdfs:comment>Name or unique ID of network. (Networks are often reused across different insurance plans).</rdfs:comment>
+        <rdfs:label>healthPlanNetworkId</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/identifier -->
+
+    <ObjectProperty rdf:about="http://schema.org/identifier">
+        <rdfs:domain rdf:resource="http://schema.org/Thing"/>
+        <rdfs:range rdf:resource="http://schema.org/PropertyValue"/>
+        <rdfs:range rdf:resource="http://schema.org/Text"/>
+        <rdfs:range rdf:resource="http://schema.org/URL"/>
+        <rdfs:comment>The identifier property represents any kind of identifier for any kind of &lt;a class=&quot;localLink&quot; href=&quot;http://schema.org/Thing&quot;&gt;Thing&lt;/a&gt;, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See &lt;a href=&quot;/docs/datamodel.html#identifierBg&quot;&gt;background notes&lt;/a&gt; for more details.</rdfs:comment>
+        <rdfs:label>identifier</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/image -->
+
+    <ObjectProperty rdf:about="http://schema.org/image">
+        <rdfs:domain rdf:resource="http://schema.org/Thing"/>
+        <rdfs:range rdf:resource="http://schema.org/ImageObject"/>
+        <rdfs:range rdf:resource="http://schema.org/URL"/>
+        <rdfs:comment>An image of the item. This can be a &lt;a class=&quot;localLink&quot; href=&quot;http://schema.org/URL&quot;&gt;URL&lt;/a&gt; or a fully described &lt;a class=&quot;localLink&quot; href=&quot;http://schema.org/ImageObject&quot;&gt;ImageObject&lt;/a&gt;.</rdfs:comment>
+        <rdfs:label>image</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/interactionStatistic -->
+
+    <ObjectProperty rdf:about="http://schema.org/interactionStatistic">
+        <rdfs:domain rdf:resource="http://schema.org/CreativeWork"/>
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:domain rdf:resource="http://schema.org/Person"/>
+        <rdfs:range rdf:resource="http://schema.org/InteractionCounter"/>
+        <dcterms:source rdf:resource="https://github.com/schemaorg/schemaorg/issues/2421"/>
+        <schema:category>issue-2421</schema:category>
+        <rdfs:comment>The number of interactions for the CreativeWork using the WebSite or SoftwareApplication. The most specific child type of InteractionCounter should be used.</rdfs:comment>
+        <rdfs:label>interactionStatistic</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/isAcceptingNewPatients -->
+
+    <ObjectProperty rdf:about="http://schema.org/isAcceptingNewPatients">
+        <rdfs:domain rdf:resource="http://schema.org/MedicalOrganization"/>
+        <rdfs:range rdf:resource="http://schema.org/Boolean"/>
+        <dcterms:source rdf:resource="https://github.com/schemaorg/schemaorg/issues/1062"/>
+        <schema:category>issue-1062</schema:category>
+        <schema:isPartOf rdf:resource="http://pending.schema.org"/>
+        <rdfs:comment>Whether the provider is accepting new patients.</rdfs:comment>
+        <rdfs:label>isAcceptingNewPatients</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/isicV4 -->
+
+    <ObjectProperty rdf:about="http://schema.org/isicV4">
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:domain rdf:resource="http://schema.org/Person"/>
+        <rdfs:domain rdf:resource="http://schema.org/Place"/>
+        <rdfs:range rdf:resource="http://schema.org/Text"/>
+        <dcterms:source rdf:resource="http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms"/>
+        <rdfs:comment>The International Standard of Industrial Classification of All Economic Activities (ISIC), Revision 4 code for a particular organization, business person, or place.</rdfs:comment>
+        <rdfs:label>isicV4</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/knowsAbout -->
+
+    <ObjectProperty rdf:about="http://schema.org/knowsAbout">
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:domain rdf:resource="http://schema.org/Person"/>
+        <rdfs:range rdf:resource="http://schema.org/Text"/>
+        <rdfs:range rdf:resource="http://schema.org/Thing"/>
+        <rdfs:range rdf:resource="http://schema.org/URL"/>
+        <dcterms:source rdf:resource="https://github.com/schemaorg/schemaorg/issues/1688"/>
+        <dcterms:source rdf:resource="https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#TP"/>
+        <schema:category>issue-1688</schema:category>
+        <schema:isPartOf rdf:resource="http://pending.schema.org"/>
+        <rdfs:comment>Of a &lt;a class=&quot;localLink&quot; href=&quot;http://schema.org/Person&quot;&gt;Person&lt;/a&gt;, and less typically of an &lt;a class=&quot;localLink&quot; href=&quot;http://schema.org/Organization&quot;&gt;Organization&lt;/a&gt;, to indicate a topic that is known about - suggesting possible expertise but not implying it. We do not distinguish skill levels here, or relate this to educational content, events, objectives or &lt;a class=&quot;localLink&quot; href=&quot;http://schema.org/JobPosting&quot;&gt;JobPosting&lt;/a&gt; descriptions.</rdfs:comment>
+        <rdfs:label>knowsAbout</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/knowsLanguage -->
+
+    <ObjectProperty rdf:about="http://schema.org/knowsLanguage">
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:domain rdf:resource="http://schema.org/Person"/>
+        <rdfs:range rdf:resource="http://schema.org/Language"/>
+        <rdfs:range rdf:resource="http://schema.org/Text"/>
+        <dcterms:source rdf:resource="https://github.com/schemaorg/schemaorg/issues/1688"/>
+        <dcterms:source rdf:resource="https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#TP"/>
+        <schema:category>issue-1688</schema:category>
+        <schema:isPartOf rdf:resource="http://pending.schema.org"/>
+        <rdfs:comment>Of a &lt;a class=&quot;localLink&quot; href=&quot;http://schema.org/Person&quot;&gt;Person&lt;/a&gt;, and less typically of an &lt;a class=&quot;localLink&quot; href=&quot;http://schema.org/Organization&quot;&gt;Organization&lt;/a&gt;, to indicate a known language. We do not distinguish skill levels or reading/writing/speaking/signing here. Use language codes from the &lt;a href=&quot;http://tools.ietf.org/html/bcp47&quot;&gt;IETF BCP 47 standard&lt;/a&gt;.</rdfs:comment>
+        <rdfs:label>knowsLanguage</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/legalName -->
+
+    <ObjectProperty rdf:about="http://schema.org/legalName">
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:range rdf:resource="http://schema.org/Text"/>
+        <dcterms:source rdf:resource="http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms"/>
+        <rdfs:comment>The official name of the organization, e.g. the registered company name.</rdfs:comment>
+        <rdfs:label>legalName</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/leiCode -->
+
+    <ObjectProperty rdf:about="http://schema.org/leiCode">
+        <rdfs:subPropertyOf rdf:resource="http://schema.org/identifier"/>
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:range rdf:resource="http://schema.org/Text"/>
+        <dcterms:source rdf:resource="http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#FIBO"/>
+        <dcterms:source rdf:resource="http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#GLEIF"/>
+        <rdfs:comment>An organization identifier that uniquely identifies a legal entity as defined in ISO 17442.</rdfs:comment>
+        <rdfs:label>leiCode</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/location -->
+
+    <ObjectProperty rdf:about="http://schema.org/location">
+        <rdfs:domain rdf:resource="http://schema.org/Action"/>
+        <rdfs:domain rdf:resource="http://schema.org/Event"/>
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:range rdf:resource="http://schema.org/Place"/>
+        <rdfs:range rdf:resource="http://schema.org/PostalAddress"/>
+        <rdfs:range rdf:resource="http://schema.org/Text"/>
+        <rdfs:comment>The location of for example where the event is happening, an organization is located, or where an action takes place.</rdfs:comment>
+        <rdfs:label>location</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/logo -->
+
+    <ObjectProperty rdf:about="http://schema.org/logo">
+        <rdfs:subPropertyOf rdf:resource="http://schema.org/image"/>
+        <rdfs:domain rdf:resource="http://schema.org/Brand"/>
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:domain rdf:resource="http://schema.org/Place"/>
+        <rdfs:domain rdf:resource="http://schema.org/Product"/>
+        <rdfs:domain rdf:resource="http://schema.org/Service"/>
+        <rdfs:range rdf:resource="http://schema.org/ImageObject"/>
+        <rdfs:range rdf:resource="http://schema.org/URL"/>
+        <dcterms:source rdf:resource="http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms"/>
+        <rdfs:comment>An associated logo.</rdfs:comment>
+        <rdfs:label>logo</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/mainEntityOfPage -->
+
+    <ObjectProperty rdf:about="http://schema.org/mainEntityOfPage">
+        <rdfs:domain rdf:resource="http://schema.org/Thing"/>
+        <rdfs:range rdf:resource="http://schema.org/CreativeWork"/>
+        <rdfs:range rdf:resource="http://schema.org/URL"/>
+        <schema:inverseOf rdf:resource="http://schema.org/mainEntity"/>
+        <rdfs:comment>Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See &lt;a href=&quot;/docs/datamodel.html#mainEntityBackground&quot;&gt;background notes&lt;/a&gt; for details.</rdfs:comment>
+        <rdfs:label>mainEntityOfPage</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/makesOffer -->
+
+    <ObjectProperty rdf:about="http://schema.org/makesOffer">
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:domain rdf:resource="http://schema.org/Person"/>
+        <rdfs:range rdf:resource="http://schema.org/Offer"/>
+        <dcterms:source rdf:resource="http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms"/>
+        <schema:inverseOf rdf:resource="http://schema.org/offeredBy"/>
+        <rdfs:comment>A pointer to products or services offered by the organization or person.</rdfs:comment>
+        <rdfs:label>makesOffer</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/medicalSpecialty -->
+
+    <ObjectProperty rdf:about="http://schema.org/medicalSpecialty">
+        <rdfs:domain rdf:resource="http://schema.org/Hospital"/>
+        <rdfs:domain rdf:resource="http://schema.org/MedicalClinic"/>
+        <rdfs:domain rdf:resource="http://schema.org/MedicalOrganization"/>
+        <rdfs:domain rdf:resource="http://schema.org/Physician"/>
+        <rdfs:range rdf:resource="http://schema.org/MedicalSpecialty"/>
+        <schema:isPartOf rdf:resource="http://health-lifesci.schema.org"/>
+        <rdfs:comment>A medical specialty of the provider.</rdfs:comment>
+        <rdfs:label>medicalSpecialty</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/member -->
+
+    <ObjectProperty rdf:about="http://schema.org/member">
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:domain rdf:resource="http://schema.org/ProgramMembership"/>
+        <rdfs:range rdf:resource="http://schema.org/Organization"/>
+        <rdfs:range rdf:resource="http://schema.org/Person"/>
+        <schema:inverseOf rdf:resource="http://schema.org/memberOf"/>
+        <rdfs:comment>A member of an Organization or a ProgramMembership. Organizations can be members of organizations; ProgramMembership is typically for individuals.</rdfs:comment>
+        <rdfs:label>member</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/memberOf -->
+
+    <ObjectProperty rdf:about="http://schema.org/memberOf">
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:domain rdf:resource="http://schema.org/Person"/>
+        <rdfs:range rdf:resource="http://schema.org/Organization"/>
+        <rdfs:range rdf:resource="http://schema.org/ProgramMembership"/>
+        <schema:inverseOf rdf:resource="http://schema.org/member"/>
+        <rdfs:comment>An Organization (or ProgramMembership) to which this Person or Organization belongs.</rdfs:comment>
+        <rdfs:label>memberOf</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/members -->
+
+    <ObjectProperty rdf:about="http://schema.org/members">
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:domain rdf:resource="http://schema.org/ProgramMembership"/>
+        <rdfs:range rdf:resource="http://schema.org/Organization"/>
+        <rdfs:range rdf:resource="http://schema.org/Person"/>
+        <schema:supersededBy rdf:resource="http://schema.org/member"/>
+        <rdfs:comment>A member of this organization.</rdfs:comment>
+        <rdfs:label>members</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/naics -->
+
+    <ObjectProperty rdf:about="http://schema.org/naics">
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:domain rdf:resource="http://schema.org/Person"/>
+        <rdfs:range rdf:resource="http://schema.org/Text"/>
+        <dcterms:source rdf:resource="http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms"/>
+        <rdfs:comment>The North American Industry Classification System (NAICS) code for a particular organization or business person.</rdfs:comment>
+        <rdfs:label>naics</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/numberOfEmployees -->
+
+    <ObjectProperty rdf:about="http://schema.org/numberOfEmployees">
+        <rdfs:domain rdf:resource="http://schema.org/BusinessAudience"/>
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:range rdf:resource="http://schema.org/QuantitativeValue"/>
+        <rdfs:comment>The number of employees in an organization e.g. business.</rdfs:comment>
+        <rdfs:label>numberOfEmployees</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/ownershipFundingInfo -->
+
+    <ObjectProperty rdf:about="http://schema.org/ownershipFundingInfo">
+        <rdfs:subPropertyOf rdf:resource="http://schema.org/publishingPrinciples"/>
+        <rdfs:domain rdf:resource="http://schema.org/NewsMediaOrganization"/>
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:range rdf:resource="http://schema.org/AboutPage"/>
+        <rdfs:range rdf:resource="http://schema.org/CreativeWork"/>
+        <rdfs:range rdf:resource="http://schema.org/Text"/>
+        <rdfs:range rdf:resource="http://schema.org/URL"/>
+        <dcterms:source rdf:resource="https://github.com/schemaorg/schemaorg/issues/1525"/>
+        <dcterms:source rdf:resource="https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#TP"/>
+        <schema:category>issue-1525</schema:category>
+        <schema:isPartOf rdf:resource="http://pending.schema.org"/>
+        <rdfs:comment>For an &lt;a class=&quot;localLink&quot; href=&quot;http://schema.org/Organization&quot;&gt;Organization&lt;/a&gt; (often but not necessarily a &lt;a class=&quot;localLink&quot; href=&quot;http://schema.org/NewsMediaOrganization&quot;&gt;NewsMediaOrganization&lt;/a&gt;), a description of organizational ownership structure; funding and grants. In a news/media setting, this is with particular reference to editorial independence.   Note that the &lt;a class=&quot;localLink&quot; href=&quot;http://schema.org/funder&quot;&gt;funder&lt;/a&gt; is also available and can be used to make basic funder information machine-readable.</rdfs:comment>
+        <rdfs:label>ownershipFundingInfo</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/owns -->
+
+    <ObjectProperty rdf:about="http://schema.org/owns">
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:domain rdf:resource="http://schema.org/Person"/>
+        <rdfs:range rdf:resource="http://schema.org/OwnershipInfo"/>
+        <rdfs:range rdf:resource="http://schema.org/Product"/>
+        <dcterms:source rdf:resource="http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms"/>
+        <rdfs:comment>Products owned by the organization or person.</rdfs:comment>
+        <rdfs:label>owns</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/parentOrganization -->
+
+    <ObjectProperty rdf:about="http://schema.org/parentOrganization">
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:range rdf:resource="http://schema.org/Organization"/>
+        <schema:inverseOf rdf:resource="http://schema.org/subOrganization"/>
+        <rdfs:comment>The larger organization that this organization is a &lt;a class=&quot;localLink&quot; href=&quot;http://schema.org/subOrganization&quot;&gt;subOrganization&lt;/a&gt; of, if any.</rdfs:comment>
+        <rdfs:label>parentOrganization</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/potentialAction -->
+
+    <ObjectProperty rdf:about="http://schema.org/potentialAction">
+        <rdfs:domain rdf:resource="http://schema.org/Thing"/>
+        <rdfs:range rdf:resource="http://schema.org/Action"/>
+        <rdfs:comment>Indicates a potential Action, which describes an idealized action in which this thing would play an &apos;object&apos; role.</rdfs:comment>
+        <rdfs:label>potentialAction</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/publishingPrinciples -->
+
+    <ObjectProperty rdf:about="http://schema.org/publishingPrinciples">
+        <rdfs:domain rdf:resource="http://schema.org/CreativeWork"/>
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:domain rdf:resource="http://schema.org/Person"/>
+        <rdfs:range rdf:resource="http://schema.org/CreativeWork"/>
+        <rdfs:range rdf:resource="http://schema.org/URL"/>
+        <rdfs:comment>The publishingPrinciples property indicates (typically via &lt;a class=&quot;localLink&quot; href=&quot;http://schema.org/URL&quot;&gt;URL&lt;/a&gt;) a document describing the editorial principles of an &lt;a class=&quot;localLink&quot; href=&quot;http://schema.org/Organization&quot;&gt;Organization&lt;/a&gt; (or individual e.g. a &lt;a class=&quot;localLink&quot; href=&quot;http://schema.org/Person&quot;&gt;Person&lt;/a&gt; writing a blog) that relate to their activities as a publisher, e.g. ethics or diversity policies. When applied to a &lt;a class=&quot;localLink&quot; href=&quot;http://schema.org/CreativeWork&quot;&gt;CreativeWork&lt;/a&gt; (e.g. &lt;a class=&quot;localLink&quot; href=&quot;http://schema.org/NewsArticle&quot;&gt;NewsArticle&lt;/a&gt;) the principles are those of the party primarily responsible for the creation of the &lt;a class=&quot;localLink&quot; href=&quot;http://schema.org/CreativeWork&quot;&gt;CreativeWork&lt;/a&gt;.&lt;br/&gt;&lt;br/&gt;
+
+While such policies are most typically expressed in natural language, sometimes related information (e.g. indicating a &lt;a class=&quot;localLink&quot; href=&quot;http://schema.org/funder&quot;&gt;funder&lt;/a&gt;) can be expressed using schema.org terminology.</rdfs:comment>
+        <rdfs:label>publishingPrinciples</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/review -->
+
+    <ObjectProperty rdf:about="http://schema.org/review">
+        <rdfs:domain rdf:resource="http://schema.org/Brand"/>
+        <rdfs:domain rdf:resource="http://schema.org/CreativeWork"/>
+        <rdfs:domain rdf:resource="http://schema.org/Event"/>
+        <rdfs:domain rdf:resource="http://schema.org/Offer"/>
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:domain rdf:resource="http://schema.org/Place"/>
+        <rdfs:domain rdf:resource="http://schema.org/Product"/>
+        <rdfs:domain rdf:resource="http://schema.org/Service"/>
+        <rdfs:range rdf:resource="http://schema.org/Review"/>
+        <rdfs:comment>A review of the item.</rdfs:comment>
+        <rdfs:label>review</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/reviews -->
+
+    <ObjectProperty rdf:about="http://schema.org/reviews">
+        <rdfs:domain rdf:resource="http://schema.org/CreativeWork"/>
+        <rdfs:domain rdf:resource="http://schema.org/Offer"/>
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:domain rdf:resource="http://schema.org/Place"/>
+        <rdfs:domain rdf:resource="http://schema.org/Product"/>
+        <rdfs:range rdf:resource="http://schema.org/Review"/>
+        <schema:supersededBy rdf:resource="http://schema.org/review"/>
+        <rdfs:comment>Review of the item.</rdfs:comment>
+        <rdfs:label>reviews</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/sameAs -->
+
+    <ObjectProperty rdf:about="http://schema.org/sameAs">
+        <rdfs:domain rdf:resource="http://schema.org/Thing"/>
+        <rdfs:range rdf:resource="http://schema.org/URL"/>
+        <rdfs:comment>URL of a reference Web page that unambiguously indicates the item&apos;s identity. E.g. the URL of the item&apos;s Wikipedia page, Wikidata entry, or official website.</rdfs:comment>
+        <rdfs:label>sameAs</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/seeks -->
+
+    <ObjectProperty rdf:about="http://schema.org/seeks">
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:domain rdf:resource="http://schema.org/Person"/>
+        <rdfs:range rdf:resource="http://schema.org/Demand"/>
+        <dcterms:source rdf:resource="http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms"/>
+        <rdfs:comment>A pointer to products or services sought by the organization or person (demand).</rdfs:comment>
+        <rdfs:label>seeks</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/serviceArea -->
+
+    <ObjectProperty rdf:about="http://schema.org/serviceArea">
+        <rdfs:domain rdf:resource="http://schema.org/ContactPoint"/>
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:domain rdf:resource="http://schema.org/Service"/>
+        <rdfs:range rdf:resource="http://schema.org/AdministrativeArea"/>
+        <rdfs:range rdf:resource="http://schema.org/GeoShape"/>
+        <rdfs:range rdf:resource="http://schema.org/Place"/>
+        <schema:supersededBy rdf:resource="http://schema.org/areaServed"/>
+        <rdfs:comment>The geographic area where the service is provided.</rdfs:comment>
+        <rdfs:label>serviceArea</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/slogan -->
+
+    <ObjectProperty rdf:about="http://schema.org/slogan">
+        <rdfs:domain rdf:resource="http://schema.org/Brand"/>
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:domain rdf:resource="http://schema.org/Place"/>
+        <rdfs:domain rdf:resource="http://schema.org/Product"/>
+        <rdfs:domain rdf:resource="http://schema.org/Service"/>
+        <rdfs:range rdf:resource="http://schema.org/Text"/>
+        <rdfs:comment>A slogan or motto associated with the item.</rdfs:comment>
+        <rdfs:label>slogan</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/sponsor -->
+
+    <ObjectProperty rdf:about="http://schema.org/sponsor">
+        <rdfs:domain rdf:resource="http://schema.org/CreativeWork"/>
+        <rdfs:domain rdf:resource="http://schema.org/Event"/>
+        <rdfs:domain rdf:resource="http://schema.org/Grant"/>
+        <rdfs:domain rdf:resource="http://schema.org/MedicalStudy"/>
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:domain rdf:resource="http://schema.org/Person"/>
+        <rdfs:range rdf:resource="http://schema.org/Organization"/>
+        <rdfs:range rdf:resource="http://schema.org/Person"/>
+        <rdfs:comment>A person or organization that supports a thing through a pledge, promise, or financial contribution. e.g. a sponsor of a Medical Study or a corporate sponsor of an event.</rdfs:comment>
+        <rdfs:label>sponsor</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/subOrganization -->
+
+    <ObjectProperty rdf:about="http://schema.org/subOrganization">
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:range rdf:resource="http://schema.org/Organization"/>
+        <schema:inverseOf rdf:resource="http://schema.org/parentOrganization"/>
+        <rdfs:comment>A relationship between two organizations where the first includes the second, e.g., as a subsidiary. See also: the more specific &apos;department&apos; property.</rdfs:comment>
+        <rdfs:label>subOrganization</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/subjectOf -->
+
+    <ObjectProperty rdf:about="http://schema.org/subjectOf">
+        <rdfs:domain rdf:resource="http://schema.org/Thing"/>
+        <rdfs:range rdf:resource="http://schema.org/CreativeWork"/>
+        <rdfs:range rdf:resource="http://schema.org/Event"/>
+        <dcterms:source rdf:resource="https://github.com/schemaorg/schemaorg/issues/1670"/>
+        <schema:category>issue-1670</schema:category>
+        <schema:inverseOf rdf:resource="http://schema.org/about"/>
+        <rdfs:comment>A CreativeWork or Event about this Thing.</rdfs:comment>
+        <rdfs:label>subjectOf</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/taxID -->
+
+    <ObjectProperty rdf:about="http://schema.org/taxID">
+        <rdfs:subPropertyOf rdf:resource="http://schema.org/identifier"/>
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:domain rdf:resource="http://schema.org/Person"/>
+        <rdfs:range rdf:resource="http://schema.org/Text"/>
+        <dcterms:source rdf:resource="http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms"/>
+        <rdfs:comment>The Tax / Fiscal ID of the organization or person, e.g. the TIN in the US or the CIF/NIF in Spain.</rdfs:comment>
+        <rdfs:label>taxID</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/telephone -->
+
+    <ObjectProperty rdf:about="http://schema.org/telephone">
+        <rdfs:domain rdf:resource="http://schema.org/ContactPoint"/>
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:domain rdf:resource="http://schema.org/Person"/>
+        <rdfs:domain rdf:resource="http://schema.org/Place"/>
+        <rdfs:range rdf:resource="http://schema.org/Text"/>
+        <rdfs:comment>The telephone number.</rdfs:comment>
+        <rdfs:label>telephone</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/unnamedSourcesPolicy -->
+
+    <ObjectProperty rdf:about="http://schema.org/unnamedSourcesPolicy">
+        <rdfs:subPropertyOf rdf:resource="http://schema.org/publishingPrinciples"/>
+        <rdfs:domain rdf:resource="http://schema.org/NewsMediaOrganization"/>
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:range rdf:resource="http://schema.org/CreativeWork"/>
+        <rdfs:range rdf:resource="http://schema.org/URL"/>
+        <dcterms:source rdf:resource="https://github.com/schemaorg/schemaorg/issues/1525"/>
+        <dcterms:source rdf:resource="https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#TP"/>
+        <schema:category>issue-1525</schema:category>
+        <schema:isPartOf rdf:resource="http://pending.schema.org"/>
+        <rdfs:comment>For an &lt;a class=&quot;localLink&quot; href=&quot;http://schema.org/Organization&quot;&gt;Organization&lt;/a&gt; (typically a &lt;a class=&quot;localLink&quot; href=&quot;http://schema.org/NewsMediaOrganization&quot;&gt;NewsMediaOrganization&lt;/a&gt;), a statement about policy on use of unnamed sources and the decision process required.</rdfs:comment>
+        <rdfs:label>unnamedSourcesPolicy</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/url -->
+
+    <ObjectProperty rdf:about="http://schema.org/url">
+        <rdfs:domain rdf:resource="http://schema.org/Thing"/>
+        <rdfs:range rdf:resource="http://schema.org/URL"/>
+        <rdfs:comment>URL of the item.</rdfs:comment>
+        <rdfs:label>url</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/vatID -->
+
+    <ObjectProperty rdf:about="http://schema.org/vatID">
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:domain rdf:resource="http://schema.org/Person"/>
+        <rdfs:range rdf:resource="http://schema.org/Text"/>
+        <dcterms:source rdf:resource="http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms"/>
+        <rdfs:comment>The Value-added Tax ID of the organization or person.</rdfs:comment>
+        <rdfs:label>vatID</rdfs:label>
+    </ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://schema.org/AboutPage -->
+
+    <Class rdf:about="http://schema.org/AboutPage"/>
+    
+
+
+    <!-- http://schema.org/Action -->
+
+    <Class rdf:about="http://schema.org/Action"/>
+    
+
+
+    <!-- http://schema.org/AdministrativeArea -->
+
+    <Class rdf:about="http://schema.org/AdministrativeArea"/>
+    
+
+
+    <!-- http://schema.org/AggregateRating -->
+
+    <Class rdf:about="http://schema.org/AggregateRating"/>
+    
+
+
+    <!-- http://schema.org/Article -->
+
+    <Class rdf:about="http://schema.org/Article"/>
+    
+
+
+    <!-- http://schema.org/Boolean -->
+
+    <Class rdf:about="http://schema.org/Boolean"/>
+    
+
+
+    <!-- http://schema.org/Brand -->
+
+    <Class rdf:about="http://schema.org/Brand"/>
+    
+
+
+    <!-- http://schema.org/BusinessAudience -->
+
+    <Class rdf:about="http://schema.org/BusinessAudience"/>
+    
+
+
+    <!-- http://schema.org/ContactPoint -->
+
+    <Class rdf:about="http://schema.org/ContactPoint"/>
+    
+
+
+    <!-- http://schema.org/CreativeWork -->
+
+    <Class rdf:about="http://schema.org/CreativeWork"/>
+    
+
+
+    <!-- http://schema.org/Date -->
+
+    <Class rdf:about="http://schema.org/Date"/>
+    
+
+
+    <!-- http://schema.org/DeliveryChargeSpecification -->
+
+    <Class rdf:about="http://schema.org/DeliveryChargeSpecification"/>
+    
+
+
+    <!-- http://schema.org/Demand -->
+
+    <Class rdf:about="http://schema.org/Demand"/>
+    
+
+
+    <!-- http://schema.org/Dentist -->
+
+    <Class rdf:about="http://schema.org/Dentist">
+        <rdfs:subClassOf rdf:resource="http://schema.org/MedicalOrganization"/>
+    </Class>
+    
+
+
+    <!-- http://schema.org/DiagnosticLab -->
+
+    <Class rdf:about="http://schema.org/DiagnosticLab">
+        <rdfs:subClassOf rdf:resource="http://schema.org/MedicalOrganization"/>
+    </Class>
+    
+
+
+    <!-- http://schema.org/EducationalOccupationalCredential -->
+
+    <Class rdf:about="http://schema.org/EducationalOccupationalCredential"/>
+    
+
+
+    <!-- http://schema.org/EducationalOrganization -->
+
+    <Class rdf:about="http://schema.org/EducationalOrganization"/>
+    
+
+
+    <!-- http://schema.org/Event -->
+
+    <Class rdf:about="http://schema.org/Event"/>
+    
+
+
+    <!-- http://schema.org/GeoCoordinates -->
+
+    <Class rdf:about="http://schema.org/GeoCoordinates"/>
+    
+
+
+    <!-- http://schema.org/GeoShape -->
+
+    <Class rdf:about="http://schema.org/GeoShape"/>
+    
+
+
+    <!-- http://schema.org/Grant -->
+
+    <Class rdf:about="http://schema.org/Grant"/>
+    
+
+
+    <!-- http://schema.org/HealthInsurancePlan -->
+
+    <Class rdf:about="http://schema.org/HealthInsurancePlan"/>
+    
+
+
+    <!-- http://schema.org/HealthPlanNetwork -->
+
+    <Class rdf:about="http://schema.org/HealthPlanNetwork"/>
+    
+
+
+    <!-- http://schema.org/Hospital -->
+
+    <Class rdf:about="http://schema.org/Hospital">
+        <rdfs:subClassOf rdf:resource="http://schema.org/MedicalOrganization"/>
+    </Class>
+    
+
+
+    <!-- http://schema.org/ImageObject -->
+
+    <Class rdf:about="http://schema.org/ImageObject"/>
+    
+
+
+    <!-- http://schema.org/InformAction -->
+
+    <Class rdf:about="http://schema.org/InformAction"/>
+    
+
+
+    <!-- http://schema.org/InteractionCounter -->
+
+    <Class rdf:about="http://schema.org/InteractionCounter"/>
+    
+
+
+    <!-- http://schema.org/InviteAction -->
+
+    <Class rdf:about="http://schema.org/InviteAction"/>
+    
+
+
+    <!-- http://schema.org/JoinAction -->
+
+    <Class rdf:about="http://schema.org/JoinAction"/>
+    
+
+
+    <!-- http://schema.org/Language -->
+
+    <Class rdf:about="http://schema.org/Language"/>
+    
+
+
+    <!-- http://schema.org/LeaveAction -->
+
+    <Class rdf:about="http://schema.org/LeaveAction"/>
+    
+
+
+    <!-- http://schema.org/MedicalClinic -->
+
+    <Class rdf:about="http://schema.org/MedicalClinic">
+        <rdfs:subClassOf rdf:resource="http://schema.org/MedicalOrganization"/>
+    </Class>
+    
+
+
+    <!-- http://schema.org/MedicalOrganization -->
+
+    <Class rdf:about="http://schema.org/MedicalOrganization">
+        <rdfs:subClassOf rdf:resource="http://schema.org/Organization"/>
+        <rdfs:comment>A medical organization (physical or not), such as hospital, institution or clinic.</rdfs:comment>
+        <rdfs:label>MedicalOrganization</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://schema.org/MedicalSpecialty -->
+
+    <Class rdf:about="http://schema.org/MedicalSpecialty"/>
+    
+
+
+    <!-- http://schema.org/MedicalStudy -->
+
+    <Class rdf:about="http://schema.org/MedicalStudy"/>
+    
+
+
+    <!-- http://schema.org/MerchantReturnPolicy -->
+
+    <Class rdf:about="http://schema.org/MerchantReturnPolicy"/>
+    
+
+
+    <!-- http://schema.org/MonetaryGrant -->
+
+    <Class rdf:about="http://schema.org/MonetaryGrant"/>
+    
+
+
+    <!-- http://schema.org/NewsMediaOrganization -->
+
+    <Class rdf:about="http://schema.org/NewsMediaOrganization"/>
+    
+
+
+    <!-- http://schema.org/Offer -->
+
+    <Class rdf:about="http://schema.org/Offer"/>
+    
+
+
+    <!-- http://schema.org/OfferCatalog -->
+
+    <Class rdf:about="http://schema.org/OfferCatalog"/>
+    
+
+
+    <!-- http://schema.org/Organization -->
+
+    <Class rdf:about="http://schema.org/Organization">
+        <rdfs:subClassOf rdf:resource="http://schema.org/Thing"/>
+        <rdfs:comment>An organization such as a school, NGO, corporation, club, etc.</rdfs:comment>
+        <rdfs:label>Organization</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://schema.org/OwnershipInfo -->
+
+    <Class rdf:about="http://schema.org/OwnershipInfo"/>
+    
+
+
+    <!-- http://schema.org/Person -->
+
+    <Class rdf:about="http://schema.org/Person"/>
+    
+
+
+    <!-- http://schema.org/Pharmacy -->
+
+    <Class rdf:about="http://schema.org/Pharmacy">
+        <rdfs:subClassOf rdf:resource="http://schema.org/MedicalOrganization"/>
+    </Class>
+    
+
+
+    <!-- http://schema.org/Physician -->
+
+    <Class rdf:about="http://schema.org/Physician">
+        <rdfs:subClassOf rdf:resource="http://schema.org/MedicalOrganization"/>
+    </Class>
+    
+
+
+    <!-- http://schema.org/Place -->
+
+    <Class rdf:about="http://schema.org/Place"/>
+    
+
+
+    <!-- http://schema.org/PlayAction -->
+
+    <Class rdf:about="http://schema.org/PlayAction"/>
+    
+
+
+    <!-- http://schema.org/PostalAddress -->
+
+    <Class rdf:about="http://schema.org/PostalAddress"/>
+    
+
+
+    <!-- http://schema.org/Product -->
+
+    <Class rdf:about="http://schema.org/Product"/>
+    
+
+
+    <!-- http://schema.org/ProductReturnPolicy -->
+
+    <Class rdf:about="http://schema.org/ProductReturnPolicy"/>
+    
+
+
+    <!-- http://schema.org/ProgramMembership -->
+
+    <Class rdf:about="http://schema.org/ProgramMembership"/>
+    
+
+
+    <!-- http://schema.org/PropertyValue -->
+
+    <Class rdf:about="http://schema.org/PropertyValue"/>
+    
+
+
+    <!-- http://schema.org/QuantitativeValue -->
+
+    <Class rdf:about="http://schema.org/QuantitativeValue"/>
+    
+
+
+    <!-- http://schema.org/Review -->
+
+    <Class rdf:about="http://schema.org/Review"/>
+    
+
+
+    <!-- http://schema.org/Service -->
+
+    <Class rdf:about="http://schema.org/Service"/>
+    
+
+
+    <!-- http://schema.org/Text -->
+
+    <Class rdf:about="http://schema.org/Text"/>
+    
+
+
+    <!-- http://schema.org/Thing -->
+
+    <Class rdf:about="http://schema.org/Thing">
+        <rdfs:comment>The most generic type of item.</rdfs:comment>
+        <rdfs:label>Thing</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://schema.org/URL -->
+
+    <Class rdf:about="http://schema.org/URL"/>
+    
+
+
+    <!-- http://schema.org/VeterinaryCare -->
+
+    <Class rdf:about="http://schema.org/VeterinaryCare">
+        <rdfs:subClassOf rdf:resource="http://schema.org/MedicalOrganization"/>
+    </Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://schema.org/additionalType">
+        <rdfs:label>additionalType</rdfs:label>
+        <rdfs:comment>An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the &apos;typeof&apos; attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.</rdfs:comment>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

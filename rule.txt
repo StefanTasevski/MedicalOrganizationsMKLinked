@@ -1,0 +1,14 @@
+Individual: @A*
+Types: schema:Pharmacy
+Facts: legalName @B* ,
+areaServed @C* ,
+location @C* ,
+isPartOfFZONetwork @D*  (xsd:boolean),
+address @E*,
+email @F* ,
+telephone @G* ,
+isInsulinPharmacy @H* (xsd:boolean),
+laboratoryLevel @I*  (xsd:integer),
+isImmunizationClinic @J*  (xsd:boolean),
+isAcceptingNewPatients @K*  (xsd:boolean),
+fzoCode @L*  (xsd:integer)
