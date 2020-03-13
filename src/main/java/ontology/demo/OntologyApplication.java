@@ -1,5 +1,4 @@
-package ontologie.demo;
-
+package ontology.demo;
 
 import org.apache.jena.ontology.OntModel;
 import org.apache.jena.ontology.OntModelSpec;
@@ -14,7 +13,7 @@ import java.io.FileReader;
 @SpringBootApplication
 public class OntologyApplication implements CommandLineRunner {
 
-	private final static String FILE_NAME = "gym_semantic.owl";
+	private final static String FILE_NAME = "dataset.owl";
 
 	public static void main(String[] args) {
 		SpringApplication.run(OntologyApplication.class, args);
