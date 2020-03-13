@@ -21,10 +21,10 @@ import java.util.List;
 public class OntologyAPI {
 
     /*
-     * Note: Some classes and properties not defined by us need to be added manually.
+     * Note: The properties not defined by us need to be added manually.
      * */
 
-    private final static String FILE_NAME = "data.owl";
+    private final static String FILE_NAME = "dataset.owl";
 
     @GetMapping(value = "/ontology")
     public List<JSONObject> getOntologies() {
