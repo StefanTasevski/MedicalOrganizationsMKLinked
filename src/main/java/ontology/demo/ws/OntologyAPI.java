@@ -20,11 +20,7 @@ import java.util.List;
 @RestController
 public class OntologyAPI {
 
-    /*
-     * Note: The properties not defined by us need to be added manually.
-     * */
-
-    private final static String FILE_NAME = "dataset.owl";
+    private final static String FILE_NAME = "medical_institutions_dataset.owl";
 
     @GetMapping(value = "/ontology")
     public List<JSONObject> getOntologies() {
