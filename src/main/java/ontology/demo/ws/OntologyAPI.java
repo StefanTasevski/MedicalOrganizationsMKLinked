@@ -20,7 +20,7 @@ import java.util.List;
 @RestController
 public class OntologyAPI {
 
-    private final static String FILE_NAME = "medical_institutions_dataset_new.owl";
+    private final static String FILE_NAME = "medical_institutions_data.owl";
 
     @GetMapping(value = "/ontology")
     public List<JSONObject> getOntologies() {
