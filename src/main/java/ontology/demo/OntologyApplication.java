@@ -13,7 +13,7 @@ import java.io.FileReader;
 @SpringBootApplication
 public class OntologyApplication implements CommandLineRunner {
 
-	private final static String FILE_NAME = "medical_institutions_dataset.owl";
+	private final static String FILE_NAME = "medical_institutions_dataset_new.owl";
 
 	public static void main(String[] args) {
 		SpringApplication.run(OntologyApplication.class, args);
