@@ -2,7 +2,7 @@
 
 ## The API Calls
 
-1. Get Ontologies - /ontology
+1. Get Ontologies - /
 2. Get Classes - /type
 3. Get Properties for Class - /type/{class}
 4. Get Class Sub Type - /type/{class}/subType
