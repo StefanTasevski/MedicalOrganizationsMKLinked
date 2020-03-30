@@ -22,7 +22,7 @@ public class OntologyAPI {
 
     private final static String FILE_NAME = "medical_institutions_data.owl";
 
-    @GetMapping(value = "/ontology")
+    @GetMapping(value = "/")
     public List<JSONObject> getOntologies() {
         return getList(getModel().listOntologies(), true);
     }
